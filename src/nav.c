@@ -5,8 +5,14 @@
  * Artemis III candidate regions, computes illumination and
  * communications windows, applies the constraint guards, and writes:
  *   out/sites_filled.csv — the decision-model table, filled from data
- *   out/index.html       — the navigator page (table + SVG sky plots)
+ *   out/index.html       — the navigator page (table + 3D sky-dome renders)
  *   out/summary.txt      — plain-text per-site numbers
+ *   out/sky/<slug>.txt   — per-site Sun/Earth samples for the GLSL dome
+ *                           kernel (sky/kernel_skydome.frag); sky/render.sh
+ *                           turns them into out/sky/<slug>.png, which the
+ *                           next nav run embeds base64 in the page. When
+ *                           no render exists yet, the page falls back to
+ *                           the SVG polar plot (svg_sky, below).
  *
  * C11, standard library only. No invented numbers: every value on the
  * page traces to a Horizons CSV row. Elevations are target-center,
@@ -28,6 +34,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <sys/stat.h>
 
 #define MAX_SAMPLES 128
 #define MAX_SITES 16
@@ -538,8 +545,68 @@ static void svg_sky(FILE *f, Site *s)
     fprintf(f, "</svg>\n");
 }
 
+/* --- 3D sky-dome view --- */
+static const char b64tab[] =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+/* Returns a malloc'd base64 string of the file, or NULL when the file
+ * is missing or unreadable. The caller frees it. */
+static char *read_file_b64(const char *path)
+{
+    FILE *f = fopen(path, "rb");
+    if (!f) return NULL;
+    if (fseek(f, 0, SEEK_END) != 0) { fclose(f); return NULL; }
+    long len = ftell(f);
+    if (len < 0) { fclose(f); return NULL; }
+    rewind(f);
+    unsigned char *buf = (unsigned char *)malloc(len > 0 ? (size_t)len : 1);
+    if (!buf) { fclose(f); return NULL; }
+    if (len > 0 && fread(buf, 1, (size_t)len, f) != (size_t)len) {
+        free(buf); fclose(f); return NULL;
+    }
+    fclose(f);
+    size_t outlen = ((size_t)len + 2) / 3 * 4;
+    char *out = (char *)malloc(outlen + 1);
+    if (!out) { free(buf); return NULL; }
+    size_t o = 0;
+    for (long i = 0; i < len; i += 3) {
+        long rem = len - i;
+        unsigned int v = (unsigned int)buf[i] << 16;
+        if (rem > 1) v |= (unsigned int)buf[i + 1] << 8;
+        if (rem > 2) v |= buf[i + 2];
+        out[o++] = b64tab[(v >> 18) & 63];
+        out[o++] = b64tab[(v >> 12) & 63];
+        out[o++] = rem > 1 ? b64tab[(v >> 6) & 63] : '=';
+        out[o++] = rem > 2 ? b64tab[v & 63] : '=';
+    }
+    out[o] = '\0';
+    free(buf);
+    return out;
+}
+
+/* A 3D sky-dome render (out/sky/<slug>.png) when one exists, else the
+ * SVG polar plot. The render comes from sky/render.sh: the OpenGL host
+ * runs sky/kernel_skydome.frag over this site's own 57 Horizons
+ * samples. The page stays a single file because the PNG is embedded
+ * base64. */
+static void sky_view(FILE *f, Site *s, const char *outdir)
+{
+    char dir[512], fname[32], path[512];
+    join_path(dir, sizeof dir, outdir, "sky");
+    slug_file(fname, sizeof fname, s->slug, ".png");
+    join_path(path, sizeof path, dir, fname);
+    char *b64 = read_file_b64(path);
+    if (b64) {
+        fprintf(f, "<img src=\"data:image/png;base64,%s\" alt=\"3D sky dome over %s\" style=\"width:100%%;border-radius:8px;display:block\">\n",
+                b64, s->name);
+        free(b64);
+        return;
+    }
+    svg_sky(f, s);
+}
+
 /* --- HTML --- */
-static void write_html(const char *path)
+static void write_html(const char *path, const char *outdir)
 {
     FILE *f = fopen(path, "w");
     if (!f) { fprintf(stderr, "nav: cannot write %s\n", path); exit(1); }
@@ -594,9 +661,12 @@ static void write_html(const char *path)
                "Terrain is UNKNOWN for every site — the LOLA horizon profile was not computed, so no site claims a terrain pass.</p>\n");
 
     fprintf(f, "<h2>The sky over each site</h2>\n");
-    fprintf(f, "<p>One polar plot per region. The rings are elevation: the bold ring is the horizon (0&deg;), "
-               "the center is +12&deg;. The gold line is the Sun's path across the 14 days — solid while it is up, "
-               "dashed while it is down. The blue dots are Earth, which barely moves in the lunar sky. "
+    fprintf(f, "<p>One 3D sky dome per region, rendered by the OpenGL host and the GLSL sky-dome kernel in "
+               "<code>sky/</code> from the same 57 Horizons samples behind the table — no invented scenery. "
+               "The center is the zenith, the bold ring is the horizon (0&deg;), the edge is -10&deg;, north is up. "
+               "The gold line is the Sun's path across the 14 days — solid while it is up, dashed grey while it is down. "
+               "The blue dots are Earth, which barely moves in the lunar sky; the bright discs mark both bodies at "
+               "mid-window (Nov 22 00:00 UTC), drawn larger than their true size (Sun 0.27&deg;, Earth 0.95&deg;) so they read. "
                "At the pole the Sun circles the horizon instead of rising and setting the way it does on Earth.</p>\n");
     fprintf(f, "<div class=\"grid\">\n");
     for (int r = 1; r <= nsites; r++) {
@@ -604,7 +674,7 @@ static void write_html(const char *path)
             if (sites[i].rank != r) continue;
             Site *s = &sites[i];
             fprintf(f, "<div class=\"card\">\n");
-            svg_sky(f, s);
+            sky_view(f, s, outdir);
             fprintf(f, "<p>Sun up <strong>%.1f h</strong> (max %+.2f&deg;, longest stretch %.1f h) &middot; "
                     "Earth up <strong>%.1f h</strong> (max %+.2f&deg;, longest stretch %.1f h)<br>"
                     "Decision: <strong>%s</strong> — %s</p>\n",
@@ -677,8 +747,9 @@ static void write_html(const char *path)
     fprintf(f, "<p>This entry was built by Jessica Williams' team with Muse (Meta's personal AI agent) as the AI tool: "
                "Muse wrote the navigator program, generated this page from the Horizons data, and narrated the demo video. "
                "All numeric values come from JPL Horizons ephemeris rows, not from the AI — the program only reads, "
-               "counts, and plots them. No AI-generated images are used: every diagram is rendered by the program "
-               "from the measured data. The demo video's narration is AI text-to-speech and is labeled as such. "
+               "counts, and plots them. No AI-generated images are used: every diagram is rendered by this "
+               "repository's own programs (the navigator and the OpenGL/GLSL sky-dome kernel) from the measured data. "
+               "The demo video's narration is AI text-to-speech and is labeled as such. "
                "See <code>AI_DISCLOSURE.md</code> in the repository.</p>\n");
 
     fprintf(f, "<footer>\n<p>Lunar Landing Site Navigator — Jessica Williams' team, NASA International Space Apps Challenge 2026. "
@@ -710,6 +781,26 @@ static void write_summary(const char *path)
     fclose(f);
 }
 
+/* --- sky data files for the GLSL dome kernel --- */
+static void write_sky_data(const char *outdir)
+{
+    char dir[512];
+    join_path(dir, sizeof dir, outdir, "sky");
+    mkdir(dir, 0755); /* already there on the second run: harmless */
+    for (int i = 0; i < nsites; i++) {
+        Site *s = &sites[i];
+        char fname[32], path[512];
+        slug_file(fname, sizeof fname, s->slug, ".txt");
+        join_path(path, sizeof path, dir, fname);
+        FILE *f = fopen(path, "w");
+        if (!f) { fprintf(stderr, "nav: cannot write %s\n", path); exit(1); }
+        fprintf(f, "# %s sky samples: Sun (S) and Earth (E) azimuth/elevation deg, 6-hourly\n", s->name);
+        for (int j = 0; j < s->n; j++) fprintf(f, "S %.6f %.6f\n", s->sun[j].az, s->sun[j].el);
+        for (int j = 0; j < s->n; j++) fprintf(f, "E %.6f %.6f\n", s->earth[j].az, s->earth[j].el);
+        fclose(f);
+    }
+}
+
 int main(int argc, char **argv)
 {
     const char *datadir = argc > 1 ? argv[1] : "data";
@@ -721,8 +812,9 @@ int main(int argc, char **argv)
 
     join_path(path, sizeof path, outdir, "sites_filled.csv");
     write_csv(path);
+    write_sky_data(outdir);
     join_path(path, sizeof path, outdir, "index.html");
-    write_html(path);
+    write_html(path, outdir);
     join_path(path, sizeof path, outdir, "summary.txt");
     write_summary(path);
 

@@ -72,7 +72,8 @@ stated guards — power passes at 300+ sunlit hours of the 336-hour
 window with a maximum of at least +3.0 degrees; comms passes at
 300+ Earth-visible hours with a maximum of at least +5.0 degrees —
 and ranks the sites by combined up-hours. The result is a
-comparison table, one polar sky plot per site (Sun path gold, Earth
+comparison table, one 3D sky dome per site rendered by the OpenGL
+host and the GLSL sky-dome kernel in sky/ (Sun path gold, Earth
 blue, horizon ring bold), a decision ledger with a reason and a
 tradeoff per region, and a science table (oxide abundances per
 region, 1D-CNN preprint Table 5).
@@ -100,9 +101,10 @@ geometry, and the decision column says which site wins that
 comparison.
 
 **How to re-run it.** `data/fetch.sh` re-pulls the Horizons tables;
-`make` rebuilds the navigator and regenerates the page. The raw
-Horizons output is kept in `data/raw/` so anyone can check the
-numbers against the source.
+`make` rebuilds the navigator, renders the nine 3D sky domes with
+the OpenGL host, and regenerates the page. The raw Horizons output
+is kept in `data/raw/` so anyone can check the numbers against the
+source.
 
 ## Use of AI
 
@@ -112,8 +114,9 @@ personal AI agent) as the AI tool. Muse wrote the navigator program
 narrated the demo video with AI text-to-speech. All numeric values
 come from JPL Horizons ephemeris rows, not from the AI — the program
 only reads, counts, and plots them. No AI-generated images are
-used: every diagram is rendered by the program from the measured
-data. See AI_DISCLOSURE.md for the tool-by-tool record.
+used: every diagram is rendered by this repository's own programs
+(the navigator and the OpenGL/GLSL sky-dome kernel) from the
+measured data. See AI_DISCLOSURE.md for the tool-by-tool record.
 
 ## Space Agency Data References
 

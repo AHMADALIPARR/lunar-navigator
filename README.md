@@ -150,23 +150,31 @@ that site's own numbers — never from a template that ignores them.
 
 The program generates `out/index.html`, a single self-contained
 page with no JavaScript and no network calls. It holds the
-comparison table, one polar sky plot per site, the decision ledger,
+comparison table, one 3D sky dome per site, the decision ledger,
 the science table, the method, the data sources, and the AI
 disclosure. It also writes `out/sites_filled.csv` — the
 decision-model table with all eleven columns filled — and
-`out/summary.txt`, the plain-text numbers. `make` rebuilds the
-program and regenerates all three outputs.
+`out/summary.txt`, the plain-text numbers. Running `make` rebuilds
+the program, renders the nine sky domes with the OpenGL host and
+the GLSL kernel in `sky/`, and regenerates all three outputs.
 
-## How to read the sky plots
+## How to read the sky domes
 
-Each plot is a polar view of the sky over one region. The rings are
-elevation: the bold ring is the horizon (0 degrees), the center is
-+12 degrees, and the outer ring is -6 degrees. The gold line is the
-Sun's path across the 14 days — solid while the Sun is up, dashed
-while it is down, split exactly at the horizon by interpolation.
-The blue dots are Earth, one per 6-hour sample; because Earth
-barely moves, the dots form a short arc that shows libration. The
-gold dot marks where the Sun starts on November 15. North is up.
+Each dome is a 3D fisheye view of the sky over one region,
+rendered by the OpenGL host (`sky/host.c`) running the GLSL
+sky-dome kernel (`sky/kernel_skydome.frag`) over the site's own 57
+Horizons samples — the same samples behind the table, no invented
+scenery. The center is the zenith, the bold ring is the horizon
+(0 degrees), the edge is -10 degrees, north is up. The gold line
+is the Sun's path across the 14 days — solid while the Sun is up,
+dashed grey while it is down. The blue dots are Earth, one per
+6-hour sample, joined by a faint line; because Earth barely moves,
+the dots form a short arc that shows libration. The two bright
+discs mark the Sun and Earth at mid-window (November 22 00:00
+UTC), drawn larger than their true angular size (Sun 0.27 degrees,
+Earth 0.95 degrees) so they read at 640 pixels. If no render
+exists yet, the page falls back to the SVG polar plot the program
+draws itself.
 
 At the pole the Sun circles the horizon instead of rising and
 setting the way it does on Earth, so the gold path is an arc that
@@ -353,6 +361,7 @@ generated the page from the Horizons data, and narrated the demo
 video with AI text-to-speech. All numeric values come from JPL
 Horizons ephemeris rows, not from the AI — the program only reads,
 counts, and plots them. No AI-generated images are used: every
-diagram is rendered by the program from the measured data. See
+diagram is rendered by this repository's own programs (the navigator
+and the OpenGL/GLSL sky-dome kernel) from the measured data. See
 AI_DISCLOSURE.md for the tool-by-tool record, and SUBMISSION.md for
 the text that goes on the project page.

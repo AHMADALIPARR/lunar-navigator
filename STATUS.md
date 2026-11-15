@@ -36,10 +36,27 @@ Built: 2026-11-15, local only. No remote, no push, no submission yet.
 - Decision model: sites_filled.csv parses as 11 columns x 9 rows;
   guards and decisions match the numbers in out/summary.txt.
 - Page: out/index.html renders with zero page errors (headless
-  Chromium); 9 SVG sky plots; 30 table rows; comparison table and
-  sky plots visually checked by screenshot. Dashed below-horizon
-  Sun segments present in exactly the 5 plots whose Sun sets, and
-  in none of the 3 whose Sun never sets.
+  Chromium); 9 sky views; 30 table rows; comparison table and
+  sky views visually checked by screenshot.
+- 3D sky domes (2026-11-15 ~14:52 PST, owner order: OpenGL host +
+  GLSL kernels): sky/host.c is the shader-raw-demo host plus a
+  sky-data-file argument (uSun/uEarth vec2 arrays, uCount);
+  sky/kernel_skydome.frag renders a fisheye dome per site from the
+  site's own 57 Horizons samples (center zenith, bold horizon ring,
+  edge -10 deg, north up; gold Sun path solid above / dashed grey
+  below the horizon; blue Earth dots + line; bright discs at
+  mid-window sample 28, Nov 22 00:00 UTC, drawn larger than true
+  size and labeled as such). nav.c writes out/sky/<slug>.txt,
+  sky/render.sh renders 640x640 PNGs under xvfb-run, nav re-runs
+  and embeds them base64 (SVG plot remains as fallback when no
+  render exists). Clean rebuild: zero warnings, 9/9 renders,
+  numbers byte-identical (MMP still #1, 336.0 h / +7.30). Renders
+  viewed: MMP (unbroken gold arc, Sun never sets), Peak near
+  Cabeus B (gold arc breaking to dashed grey for the dark stretch),
+  Slater Plain (low Sun + Earth, both hugging the horizon). Page
+  re-checked headless: 9 images all complete, zero page errors.
+  Demo video rebuilt against the 3D page (29.52 s, 1920x1080,
+  H.264 + AAC, peak -3.06 dB) and frame-checked at t=5/17/27.
 - Demo video: DONE 2026-11-15 ~13:10 PST — demo/lunar-navigator-demo-30s.mp4, 29.52 s, 1920x1080 H.264 + AAC (peak -3.06 dB, RMS -25.9 dB), narration AI text-to-speech (Magnus, speed 100, 28.0 s), three shots of the page with lower-third labels, frame-checked at t=5/17/27. One fix during verification: a stale '342 h' in the guard-rules paragraph was corrected to '336 h' (the window is 14 days = 336 h) and the video rebuilt.
 - Repo packaging: LICENSE verified canonical Sovereign (SHA-256 matches), README.md 2,854 words (walkthrough, over the 2,500 minimum), WATERMARK.md hash-chained over the tree (re-chained after the final edits).
 
