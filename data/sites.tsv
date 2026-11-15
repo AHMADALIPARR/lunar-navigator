@@ -1,0 +1,15 @@
+# Nine Artemis III candidate landing regions — coordinates from NASA's
+# October 28, 2024 update, as tabulated in Bian et al. 2025 (Preprints.org,
+# doi:10.20944/preprints202511.1488.v1, Table 4), cross-checked against the
+# USGS ScienceBase values carried by nasanow.org (agree within ~1 deg,
+# the regions themselves are ~10-38 km across).
+# Columns: slug, region name, longitude deg (east positive), latitude deg
+pcnb	Peak near Cabeus B	-69.014	-83.661
+haworth	Haworth	-22.836	-86.753
+malapert	Malapert Massif	-0.125	-85.990
+mmp	Mons Mouton Plateau	29.926	-84.232
+mm	Mons Mouton	31.586	-85.423
+nr1	Nobile Rim 1	37.241	-85.431
+nr2	Nobile Rim 2	58.654	-83.963
+dgr2	de Gerlache Rim 2	-65.421	-88.225
+sp	Slater Plain	126.134	-87.149

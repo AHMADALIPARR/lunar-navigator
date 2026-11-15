@@ -1,0 +1,65 @@
+Lunar Landing Site Navigator — window 2026-11-15 to 2026-11-29 (336 h, 6-hourly)
+
+#1 Mons Mouton Plateau (29.926, -84.232)
+  Sun:   up  336.0 h  max  +7.30  mean  +5.34  longest  336.0 h  sweep  170.4 deg  first 2026-Nov-15 00:00  last 2026-Nov-29 00:00
+  Earth: up  336.0 h  max +11.07  mean  +7.77  longest  336.0 h  sweep   12.6 deg  first 2026-Nov-15 00:00  last 2026-Nov-29 00:00
+  Guards: power PASS  comms PASS  terrain UNKNOWN | score 672.0 | RECOMMENDED
+  Reason: Highest combined sky access in the window: Sun up 336.0 h and Earth up 336.0 h of 336 h, with the highest Earth maximum (+11.07 deg).
+  Tradeoff: No single weak dimension in the sky geometry. The open question is terrain: the local horizon profile (LOLA) is not modeled yet, and at these grazing Sun angles a nearby ridge decides the real illumination.
+
+#2 Mons Mouton (31.586, -85.423)
+  Sun:   up  336.0 h  max  +6.11  mean  +4.55  longest  336.0 h  sweep  170.3 deg  first 2026-Nov-15 00:00  last 2026-Nov-29 00:00
+  Earth: up  336.0 h  max +10.00  mean  +6.70  longest  336.0 h  sweep   12.5 deg  first 2026-Nov-15 00:00  last 2026-Nov-29 00:00
+  Guards: power PASS  comms PASS  terrain UNKNOWN | score 672.0 | VIABLE
+  Reason: Passes both guards: Sun up 336.0 h (max +6.11 deg), Earth up 336.0 h (max +10.00 deg). Ranked #2 of 9 on combined sky access.
+  Tradeoff: Sun maximum +6.11 deg vs +7.65 deg at the best-lit site — the Sun's peak is low, so even its up-hours carry little power; local terrain masking (LOLA) is not yet modeled and could cut it further.
+
+#3 Nobile Rim 1 (37.241, -85.431)
+  Sun:   up  336.0 h  max  +6.11  mean  +4.52  longest  336.0 h  sweep  170.3 deg  first 2026-Nov-15 00:00  last 2026-Nov-29 00:00
+  Earth: up  335.1 h  max  +9.72  mean  +6.42  longest  330.0 h  sweep   12.5 deg  first 2026-Nov-15 06:00  last 2026-Nov-29 00:00
+  Guards: power PASS  comms PASS  terrain UNKNOWN | score 671.1 | VIABLE
+  Reason: Passes both guards: Sun up 336.0 h (max +6.11 deg), Earth up 335.1 h (max +9.72 deg). Ranked #3 of 9 on combined sky access.
+  Tradeoff: Sun maximum +6.11 deg vs +7.65 deg at the best-lit site — the Sun's peak is low, so even its up-hours carry little power; local terrain masking (LOLA) is not yet modeled and could cut it further.
+
+#4 Malapert Massif (-0.125, -85.990)
+  Sun:   up  332.6 h  max  +5.53  mean  +3.84  longest  330.0 h  sweep  170.3 deg  first 2026-Nov-15 06:00  last 2026-Nov-29 00:00
+  Earth: up  336.0 h  max +10.26  mean  +6.95  longest  336.0 h  sweep   12.5 deg  first 2026-Nov-15 00:00  last 2026-Nov-29 00:00
+  Guards: power PASS  comms PASS  terrain UNKNOWN | score 668.6 | VIABLE
+  Reason: Passes both guards: Sun up 332.6 h (max +5.53 deg), Earth up 336.0 h (max +10.26 deg). Ranked #4 of 9 on combined sky access.
+  Tradeoff: Sun maximum +5.53 deg vs +7.65 deg at the best-lit site — the Sun's peak is low, so even its up-hours carry little power; local terrain masking (LOLA) is not yet modeled and could cut it further.
+
+#5 Nobile Rim 2 (58.654, -83.963)
+  Sun:   up  316.2 h  max  +7.58  mean  +5.00  longest  316.2 h  sweep  170.4 deg  first 2026-Nov-15 00:00  last 2026-Nov-28 00:00
+  Earth: up  321.8 h  max  +9.08  mean  +5.78  longest  318.0 h  sweep   12.6 deg  first 2026-Nov-15 18:00  last 2026-Nov-29 00:00
+  Guards: power PASS  comms PASS  terrain UNKNOWN | score 638.0 | VIABLE
+  Reason: Passes both guards: Sun up 316.2 h (max +7.58 deg), Earth up 321.8 h (max +9.08 deg). Ranked #5 of 9 on combined sky access.
+  Tradeoff: No single weak dimension in the sky geometry. The open question is terrain: the local horizon profile (LOLA) is not modeled yet, and at these grazing Sun angles a nearby ridge decides the real illumination.
+
+#6 Haworth (-22.836, -86.753)
+  Sun:   up  299.2 h  max  +4.75  mean  +2.85  longest  294.0 h  sweep  170.2 deg  first 2026-Nov-16 18:00  last 2026-Nov-29 00:00
+  Earth: up  326.2 h  max  +9.32  mean  +6.01  longest  324.0 h  sweep   12.4 deg  first 2026-Nov-15 12:00  last 2026-Nov-29 00:00
+  Guards: power FAIL  comms PASS  terrain UNKNOWN | score 625.3 | MARGINAL
+  Reason: Comms pass (Earth up 326.2 h, max +9.32 deg) but power fails: Sun up only 299.2 h of 336 h, maximum +4.75 deg.
+  Tradeoff: Sun maximum +4.75 deg vs +7.65 deg at the best-lit site — the Sun's peak is low, so even its up-hours carry little power; local terrain masking (LOLA) is not yet modeled and could cut it further.
+
+#7 de Gerlache Rim 2 (-65.421, -88.225)
+  Sun:   up  279.2 h  max  +3.23  mean  +1.43  longest  276.0 h  sweep  170.1 deg  first 2026-Nov-17 12:00  last 2026-Nov-29 00:00
+  Earth: up  286.6 h  max  +7.09  mean  +3.78  longest  282.0 h  sweep   12.3 deg  first 2026-Nov-17 06:00  last 2026-Nov-29 00:00
+  Guards: power FAIL  comms FAIL  terrain UNKNOWN | score 565.8 | REJECT
+  Reason: Fails both guards: Sun up only 279.2 h (max +3.23 deg), Earth up only 286.6 h (max +7.09 deg) of 336 h.
+  Tradeoff: Sun maximum +3.23 deg vs +7.65 deg at the best-lit site — the Sun's peak is low, so even its up-hours carry little power; local terrain masking (LOLA) is not yet modeled and could cut it further.
+
+#8 Peak near Cabeus B (-69.014, -83.661)
+  Sun:   up  179.2 h  max  +7.65  mean  +0.92  longest  174.0 h  sweep  170.0 deg  first 2026-Nov-21 18:00  last 2026-Nov-29 00:00
+  Earth: up  318.3 h  max  +8.87  mean  +5.53  longest  318.0 h  sweep   12.2 deg  first 2026-Nov-15 18:00  last 2026-Nov-29 00:00
+  Guards: power FAIL  comms PASS  terrain UNKNOWN | score 497.5 | MARGINAL
+  Reason: Comms pass (Earth up 318.3 h, max +8.87 deg) but power fails: Sun up only 179.2 h of 336 h, maximum +7.65 deg.
+  Tradeoff: Nearly half the window in darkness (Sun down 156.8 h). A surface stay here needs batteries or nuclear power sized for multi-day nights, not solar alone.
+
+#9 Slater Plain (126.134, -87.149)
+  Sun:   up  218.4 h  max  +4.35  mean  +1.31  longest  218.4 h  sweep  170.0 deg  first 2026-Nov-15 00:00  last 2026-Nov-24 00:00
+  Earth: up  238.0 h  max  +4.44  mean  +1.15  longest  234.0 h  sweep   12.4 deg  first 2026-Nov-19 06:00  last 2026-Nov-29 00:00
+  Guards: power FAIL  comms FAIL  terrain UNKNOWN | score 456.4 | REJECT
+  Reason: Fails both guards: Sun up only 218.4 h (max +4.35 deg), Earth up only 238.0 h (max +4.44 deg) of 336 h.
+  Tradeoff: Nearly half the window in darkness (Sun down 117.6 h). A surface stay here needs batteries or nuclear power sized for multi-day nights, not solar alone.
+
