@@ -5,7 +5,9 @@ Built: 2026-11-15, local only. No remote, no push, no submission yet.
 ## Verified in this build
 
 - Region coordinates: NASA's October 28, 2024 nine-region update, as
-  tabulated in Bian et al. 2025 Table 4, cross-checked against the
+  tabulated in Table 4 of the 1D-CNN preprint
+  (doi:10.20944/preprints202511.1488.v1 — preprint, not
+  peer-reviewed), cross-checked against the
   USGS ScienceBase values (agreement within ~1 deg; regions are
   ~10–38 km across). Source files: data/sites.tsv, data/science.tsv.
 - Horizons data path: the old endpoint https://ssd-api.jpl.nasa.gov/horizons.api
@@ -17,6 +19,14 @@ Built: 2026-11-15, local only. No remote, no push, no submission yet.
   azimuth/elevation, degrees). All 18 files returned 57 rows;
   1,026 rows total. Raw output kept in data/raw/, extracted tables
   in data/csv/, fetch script in data/fetch.sh.
+- Citation correction 2026-11-15 ~13:10 PST: coordinates and oxides
+  were cited as "Bian et al. 2025" — wrong authorship. The DOI
+  10.20944/preprints202511.1488.v1 is "Oxide Abundance Inversion in
+  the Lunar Polar Regions Using a 1D-CNN Algorithm" (Preprints.org,
+  preprint, not peer-reviewed); Bian et al. (2025) is a separate
+  paper whose oxide maps the preprint used as training samples.
+  Tables 4 and 5 are in the preprint and their values are unchanged
+  — only the attribution was fixed, in every file, before push.
 - Navigator: gcc -std=c11 -O2 -Wall -Wextra, zero warnings.
   Metrics cross-checked by an independent count: Sun sweep ~170 deg
   for every site over the 14 days (half a lunar month); Earth sweep

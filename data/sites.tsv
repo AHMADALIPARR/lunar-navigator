@@ -1,6 +1,8 @@
 # Nine Artemis III candidate landing regions — coordinates from NASA's
-# October 28, 2024 update, as tabulated in Bian et al. 2025 (Preprints.org,
-# doi:10.20944/preprints202511.1488.v1, Table 4), cross-checked against the
+# October 28, 2024 update, as tabulated in Table 4 of "Oxide Abundance
+# Inversion in the Lunar Polar Regions Using a 1D-CNN Algorithm"
+# (Preprints.org, doi:10.20944/preprints202511.1488.v1 — preprint, not
+# peer-reviewed), cross-checked against the
 # USGS ScienceBase values carried by nasanow.org (agree within ~1 deg,
 # the regions themselves are ~10-38 km across).
 # Columns: slug, region name, longitude deg (east positive), latitude deg

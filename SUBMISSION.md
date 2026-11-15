@@ -75,7 +75,7 @@ and ranks the sites by combined up-hours. The result is a
 comparison table, one polar sky plot per site (Sun path gold, Earth
 blue, horizon ring bold), a decision ledger with a reason and a
 tradeoff per region, and a science table (oxide abundances per
-region, Bian et al. 2025).
+region, 1D-CNN preprint Table 5).
 
 **The result.** Mons Mouton Plateau is RECOMMENDED: Sun up all 336
 hours (maximum +7.30 degrees), Earth up all 336 hours (maximum
@@ -127,8 +127,9 @@ data. See AI_DISCLOSURE.md for the tool-by-tool record.
 - CSA Moon Exploration — background —
   https://www.asc-csa.gc.ca/eng/exploration/moon-exploration.asp
 - NASA Artemis III landing regions (October 28, 2024) — the nine
-  candidate regions and their coordinates, as tabulated in Bian et
-  al. 2025, Table 4 (doi:10.20944/preprints202511.1488.v1)
+  candidate regions and their coordinates, as tabulated in Table 4
+  of the 1D-CNN preprint (doi:10.20944/preprints202511.1488.v1 —
+  preprint, not peer-reviewed)
 
 ## Verification checkboxes (confirm on the form)
 

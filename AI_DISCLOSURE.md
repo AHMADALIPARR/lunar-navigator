@@ -29,8 +29,11 @@ AI-generated code, data, audio, and text).
   written by Muse and are acknowledged here and in the README.
 - **Data:** the 1,026 Horizons rows were fetched from JPL, not
   generated. The coordinates come from NASA's October 28, 2024
-  Artemis III regions update (via Bian et al. 2025, Table 4). The
-  oxide values come from Bian et al. 2025, Table 5.
+  Artemis III regions update (Table 4 of the 1D-CNN preprint,
+  doi:10.20944/preprints202511.1488.v1 — preprint, not
+  peer-reviewed). The oxide values come from Table 5 of the same
+  preprint, which inverts KAGUYA SP data using Bian et al. (2025)
+  oxide maps as training samples.
 - **Text:** the page text, the decision reasons, and the tradeoffs
   were written by Muse from the computed numbers; the numbers
   themselves are Horizons measurements. The submission text in

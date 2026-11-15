@@ -811,7 +811,7 @@ footer{color:#64748b;font-size:13px;margin-top:40px}
 <tr><td><strong>Slater Plain</strong></td><td><strong>REJECT</strong></td><td>Fails both guards: Sun up only 218.4 h (max +4.35 deg), Earth up only 238.0 h (max +4.44 deg) of 336 h.</td><td>Nearly half the window in darkness (Sun down 117.6 h). A surface stay here needs batteries or nuclear power sized for multi-day nights, not solar alone.</td></tr>
 </table>
 <h2>Science value</h2>
-<p>Composition from Bian et al. 2025 (Table 5), KAGUYA spectral data. All nine regions are feldspathic highland material. Slater Plain and de Gerlache Rim 2 capture the most compositional diversity within feasible operational ranges — which is why they stay interesting even though their sky geometry is the weakest.</p>
+<p>Composition from Table 5 of the 1D-CNN preprint (Preprints.org, doi:10.20944/preprints202511.1488.v1 — preprint, not peer-reviewed), inverted from KAGUYA spectral data using Bian et al. (2025) oxide maps as training samples. All nine regions are feldspathic highland material. Slater Plain and de Gerlache Rim 2 capture the most compositional diversity within feasible operational ranges — which is why they stay interesting even though their sky geometry is the weakest.</p>
 <table>
 <tr><th>Region</th><th>FeO wt%</th><th>Al2O3 wt%</th></tr>
 <tr><td>Peak near Cabeus B</td><td class="num">5.92</td><td class="num">25.75</td></tr>
@@ -825,7 +825,7 @@ footer{color:#64748b;font-size:13px;margin-top:40px}
 <tr><td>Slater Plain</td><td class="num">5.97</td><td class="num">25.59</td></tr>
 </table>
 <h2>How the numbers were made</h2>
-<p>Region coordinates are NASA's October 28, 2024 update of the nine Artemis III candidate regions, as tabulated in Bian et al. 2025 (Table 4) and cross-checked against the USGS ScienceBase values (agreement within about 1&deg;, the regions themselves are roughly 10–38 km across).</p>
+<p>Region coordinates are NASA's October 28, 2024 update of the nine Artemis III candidate regions, as tabulated in Table 4 of the 1D-CNN preprint (Preprints.org, doi:10.20944/preprints202511.1488.v1 — preprint, not peer-reviewed) and cross-checked against the USGS ScienceBase values (agreement within about 1&deg;, the regions themselves are roughly 10–38 km across).</p>
 <p>Sun and Earth positions come from the JPL Horizons system, observer ephemeris, <code>https://ssd.jpl.nasa.gov/api/horizons.api</code> (Horizons API v1.3). Each query: target Sun (<code>COMMAND='10'</code>) or Earth (<code>COMMAND='399'</code>), center <code>coord@301</code> with the region's longitude/latitude/0 km, <code>QUANTITIES='4'</code> (airless apparent azimuth and elevation, degrees), 2026-11-15 to 2026-11-29, every 6 hours — 57 rows per query, 18 queries, 1,026 rows total. The raw Horizons output is kept in <code>data/raw/</code>; the extracted tables in <code>data/csv/</code>; the fetch script is <code>data/fetch.sh</code>, so anyone can re-pull the same numbers.</p>
 <p>Limits, stated plainly: elevations are the target's center above a flat horizon — the Sun's and Earth's angular radii (about 0.27&deg; and 0.95&deg;) are not added, and no local terrain is modeled. At these grazing angles a nearby ridge changes the real illumination, so the terrain guard is UNKNOWN until a LOLA horizon profile is computed. The 6-hour sampling is interpolated linearly for rise/set times; the true crossing can differ by minutes. Nothing on this page is a landing recommendation — it is a comparison of sky geometry, and the decision column says which site wins that comparison.</p>
 <h2>Data sources</h2>
@@ -834,7 +834,8 @@ footer{color:#64748b;font-size:13px;margin-top:40px}
 <li><strong>NASA Quickmap</strong> — LRO terrain and imagery — https://quickmap.lroc.asu.edu/</li>
 <li><strong>NASA Moon Trek</strong> — interactive lunar mapping — https://trek.nasa.gov/moon/</li>
 <li><strong>CSA Moon Exploration</strong> — background — https://www.asc-csa.gc.ca/eng/exploration/moon-exploration.asp</li>
-<li><strong>NASA Artemis III landing regions (Oct 28, 2024)</strong> — region coordinates, via Bian et al. 2025 Table 4</li>
+<li><strong>NASA Artemis III landing regions (Oct 28, 2024)</strong> — region coordinates, Table 4 of the 1D-CNN preprint (doi:10.20944/preprints202511.1488.v1, preprint, not peer-reviewed)</li>
+<li><strong>Oxide Abundance Inversion in the Lunar Polar Regions Using a 1D-CNN Algorithm</strong> — oxide abundances, Table 5 of the same preprint</li>
 </ul>
 <h2>Use of AI</h2>
 <p>This entry was built by Jessica Williams' team with Muse (Meta's personal AI agent) as the AI tool: Muse wrote the navigator program, generated this page from the Horizons data, and narrated the demo video. All numeric values come from JPL Horizons ephemeris rows, not from the AI — the program only reads, counts, and plots them. No AI-generated images are used: every diagram is rendered by the program from the measured data. The demo video's narration is AI text-to-speech and is labeled as such. See <code>AI_DISCLOSURE.md</code> in the repository.</p>

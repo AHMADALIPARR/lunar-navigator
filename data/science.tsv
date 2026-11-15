@@ -1,5 +1,8 @@
-# Science values per region — oxide abundances from Bian et al. 2025
-# (Preprints.org, doi:10.20944/preprints202511.1488.v1, Table 5).
+# Science values per region — oxide abundances from Table 5 of
+# "Oxide Abundance Inversion in the Lunar Polar Regions Using a 1D-CNN
+# Algorithm" (Preprints.org, doi:10.20944/preprints202511.1488.v1 —
+# preprint, not peer-reviewed). That preprint inverts KAGUYA SP data
+# using Bian et al. (2025) oxide maps as training samples.
 # All nine regions are feldspathic highland material (FeO < 6.2 wt%,
 # Al2O3 > 25 wt%); Slater Plain and de Gerlache Rim 2 capture the most
 # compositional diversity within feasible operational ranges.

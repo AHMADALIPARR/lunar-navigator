@@ -415,7 +415,7 @@ static void write_csv(const char *path)
             "up %.1f h of %.0f h; max +%.2f deg; mean %+.2f deg; longest stretch %.1f h",
             s->earth_up, WINDOW_HOURS, s->earth_max, s->earth_mean, s->earth_longest);
         snprintf(sci, sizeof sci,
-            "FeO %.2f wt%% Al2O3 %.2f wt%% (Bian et al. 2025 Table 5); feldspathic highlands",
+            "FeO %.2f wt%% Al2O3 %.2f wt%% (1D-CNN preprint Table 5); feldspathic highlands",
             s->feo, s->al2o3);
         snprintf(guards, sizeof guards, "power:%s comms:%s terrain:UNKNOWN",
                  s->power_pass ? "PASS" : "FAIL", s->comms_pass ? "PASS" : "FAIL");
@@ -631,9 +631,11 @@ static void write_html(const char *path)
     fprintf(f, "</table>\n");
 
     fprintf(f, "<h2>Science value</h2>\n");
-    fprintf(f, "<p>Composition from Bian et al. 2025 (Table 5), KAGUYA spectral data. All nine regions are feldspathic "
-               "highland material. Slater Plain and de Gerlache Rim 2 capture the most compositional diversity within "
-               "feasible operational ranges — which is why they stay interesting even though their sky geometry is the weakest.</p>\n");
+    fprintf(f, "<p>Composition from Table 5 of the 1D-CNN preprint (Preprints.org, doi:10.20944/preprints202511.1488.v1 — "
+               "preprint, not peer-reviewed), inverted from KAGUYA spectral data using Bian et al. (2025) oxide maps as "
+               "training samples. All nine regions are feldspathic highland material. Slater Plain and de Gerlache Rim 2 "
+               "capture the most compositional diversity within feasible operational ranges — which is why they stay "
+               "interesting even though their sky geometry is the weakest.</p>\n");
     fprintf(f, "<table>\n<tr><th>Region</th><th>FeO wt%%</th><th>Al2O3 wt%%</th></tr>\n");
     for (int i = 0; i < nsites; i++) {
         fprintf(f, "<tr><td>%s</td><td class=\"num\">%.2f</td><td class=\"num\">%.2f</td></tr>\n",
@@ -643,7 +645,8 @@ static void write_html(const char *path)
 
     fprintf(f, "<h2>How the numbers were made</h2>\n");
     fprintf(f, "<p>Region coordinates are NASA's October 28, 2024 update of the nine Artemis III candidate regions, "
-               "as tabulated in Bian et al. 2025 (Table 4) and cross-checked against the USGS ScienceBase values "
+               "as tabulated in Table 4 of the 1D-CNN preprint (Preprints.org, doi:10.20944/preprints202511.1488.v1 — "
+               "preprint, not peer-reviewed) and cross-checked against the USGS ScienceBase values "
                "(agreement within about 1&deg;, the regions themselves are roughly 10–38 km across).</p>\n");
     fprintf(f, "<p>Sun and Earth positions come from the JPL Horizons system, observer ephemeris, "
                "<code>https://ssd.jpl.nasa.gov/api/horizons.api</code> (Horizons API v1.3). "
@@ -666,7 +669,8 @@ static void write_html(const char *path)
         "<li><strong>NASA Quickmap</strong> — LRO terrain and imagery — https://quickmap.lroc.asu.edu/</li>\n"
         "<li><strong>NASA Moon Trek</strong> — interactive lunar mapping — https://trek.nasa.gov/moon/</li>\n"
         "<li><strong>CSA Moon Exploration</strong> — background — https://www.asc-csa.gc.ca/eng/exploration/moon-exploration.asp</li>\n"
-        "<li><strong>NASA Artemis III landing regions (Oct 28, 2024)</strong> — region coordinates, via Bian et al. 2025 Table 4</li>\n"
+        "<li><strong>NASA Artemis III landing regions (Oct 28, 2024)</strong> — region coordinates, Table 4 of the 1D-CNN preprint (doi:10.20944/preprints202511.1488.v1, preprint, not peer-reviewed)</li>\n"
+        "<li><strong>Oxide Abundance Inversion in the Lunar Polar Regions Using a 1D-CNN Algorithm</strong> — oxide abundances, Table 5 of the same preprint</li>\n"
         "</ul>\n");
 
     fprintf(f, "<h2>Use of AI</h2>\n");

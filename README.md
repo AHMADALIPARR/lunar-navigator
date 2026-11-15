@@ -65,8 +65,10 @@ repository.
 
 The nine regions are NASA's October 28, 2024 update of the Artemis
 III candidate landing regions. Their coordinates are tabulated in
-Bian et al. 2025 (Preprints.org, doi:10.20944/preprints202511.1488.v1,
-Table 4) and cross-checked against the USGS ScienceBase values
+Table 4 of "Oxide Abundance Inversion in the Lunar Polar Regions
+Using a 1D-CNN Algorithm" (Preprints.org,
+doi:10.20944/preprints202511.1488.v1 — preprint, not peer-reviewed)
+and cross-checked against the USGS ScienceBase values
 carried by nasanow.org. The two sources agree within about one
 degree, and the regions themselves are roughly 10–38 km across, so
 the agreement is tighter than the regions are wide. The coordinates
@@ -222,8 +224,10 @@ reader can see exactly how close it is.
 
 ## The science table
 
-Composition comes from Bian et al. 2025, Table 5, inverted from
-KAGUYA spectral data. All nine regions are feldspathic highland
+Composition comes from Table 5 of the 1D-CNN preprint (Preprints.org,
+doi:10.20944/preprints202511.1488.v1 — preprint, not peer-reviewed),
+inverted from KAGUYA spectral data using Bian et al. (2025) oxide
+maps as training samples. All nine regions are feldspathic highland
 material — iron oxide under 6.2 weight percent, alumina over 25
 weight percent — with small differences between them. The table
 gives FeO and Al2O3 per region; the paper's finding is that Slater
@@ -337,9 +341,9 @@ JavaScript, and no network call in it.
 - CSA Moon Exploration — background —
   https://www.asc-csa.gc.ca/eng/exploration/moon-exploration.asp
 - NASA Artemis III landing regions, October 28, 2024 — region
-  coordinates, via Bian et al. 2025 Table 4
-  (doi:10.20944/preprints202511.1488.v1)
-- Bian et al. 2025, Table 5 — oxide abundances per region
+  coordinates, Table 4 of the 1D-CNN preprint
+  (doi:10.20944/preprints202511.1488.v1 — preprint, not peer-reviewed)
+- 1D-CNN preprint, Table 5 — oxide abundances per region
 
 ## Use of AI
 
