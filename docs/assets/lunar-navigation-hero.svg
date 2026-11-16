@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-label="Sky dome over Mons Mouton Plateau: the Sun circles the horizon for 14 days without setting">
+<rect width="1200" height="560" fill="#0b1020"/>
+<text x="48" y="64" fill="#e2e8f0" font-size="30" font-weight="700" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Lunar Landing Site Navigator</text>
+<text x="48" y="94" fill="#94a3b8" font-size="16" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Nine Artemis III regions, one 14-day window, real JPL Horizons sky geometry</text>
+<circle cx="290.0" cy="280.0" r="198.3" fill="none" stroke="#334155" stroke-width="1.0"/>
+<text x="294.0" y="93.7" fill="#94a3b8" font-size="11">-5 deg</text>
+<circle cx="290.0" cy="280.0" r="140.0" fill="none" stroke="#e8e8e8" stroke-width="2.0"/>
+<text x="294.0" y="152.0" fill="#94a3b8" font-size="11">+0 deg</text>
+<circle cx="290.0" cy="280.0" r="81.7" fill="none" stroke="#334155" stroke-width="1.0"/>
+<text x="294.0" y="210.3" fill="#94a3b8" font-size="11">+5 deg</text>
+<circle cx="290.0" cy="280.0" r="23.3" fill="none" stroke="#334155" stroke-width="1.0"/>
+<text x="294.0" y="268.7" fill="#94a3b8" font-size="11">+10 deg</text>
+<line x1="290.0" y1="280.0" x2="290.0" y2="70.0" stroke="#1e293b" stroke-width="1"/>
+<text x="290.0" y="60.0" fill="#e2e8f0" font-size="13" text-anchor="middle">N</text>
+<line x1="290.0" y1="280.0" x2="500.0" y2="280.0" stroke="#1e293b" stroke-width="1"/>
+<text x="514.0" y="284.0" fill="#e2e8f0" font-size="13" text-anchor="middle">E</text>
+<line x1="290.0" y1="280.0" x2="290.0" y2="490.0" stroke="#1e293b" stroke-width="1"/>
+<text x="290.0" y="508.0" fill="#e2e8f0" font-size="13" text-anchor="middle">S</text>
+<line x1="290.0" y1="280.0" x2="80.0" y2="280.0" stroke="#1e293b" stroke-width="1"/>
+<text x="66.0" y="284.0" fill="#e2e8f0" font-size="13" text-anchor="middle">W</text>
+<polyline fill="none" stroke="#f59e0b" stroke-width="3" points="405.0,269.3 400.8,263.8 396.3,258.6 391.7,253.9 386.9,249.6 382.0,245.7 377.0,242.2 372.0,239.0 367.0,236.3 362.0,233.9 357.0,231.9 352.2,230.2 347.4,228.8 342.8,227.6 338.3,226.7 333.9,226.0 329.7,225.5 325.6,225.1 321.7,224.9 318.0,224.8 314.4,224.8 311.0,224.8 307.6,224.9 304.4,225.0 301.3,225.1 298.3,225.1 295.3,225.2 292.3,225.2 289.4,225.2 286.5,225.2 283.5,225.1 280.5,225.0 277.4,224.9 274.3,224.8 271.0,224.7 267.6,224.6 264.1,224.6 260.4,224.6 256.6,224.7 252.6,225.0 248.5,225.4 244.2,225.9 239.7,226.7 235.1,227.7 230.4,228.9 225.6,230.5 220.7,232.3 215.7,234.5 210.6,237.0 205.6,239.9 200.6,243.1 195.6,246.8 190.7,250.8 185.9,255.3 181.3,260.2 176.9,265.5 172.8,271.2"/>
+<circle cx="223.0" cy="174.8" r="3.5" fill="#38bdf8"/>
+<circle cx="224.1" cy="178.0" r="3.5" fill="#38bdf8"/>
+<circle cx="225.3" cy="181.2" r="3.5" fill="#38bdf8"/>
+<circle cx="226.6" cy="184.5" r="3.5" fill="#38bdf8"/>
+<circle cx="228.0" cy="187.8" r="3.5" fill="#38bdf8"/>
+<circle cx="229.5" cy="191.2" r="3.5" fill="#38bdf8"/>
+<circle cx="231.1" cy="194.6" r="3.5" fill="#38bdf8"/>
+<circle cx="232.7" cy="198.0" r="3.5" fill="#38bdf8"/>
+<circle cx="234.5" cy="201.4" r="3.5" fill="#38bdf8"/>
+<circle cx="236.3" cy="204.8" r="3.5" fill="#38bdf8"/>
+<circle cx="238.2" cy="208.2" r="3.5" fill="#38bdf8"/>
+<circle cx="240.2" cy="211.6" r="3.5" fill="#38bdf8"/>
+<circle cx="242.2" cy="215.0" r="3.5" fill="#38bdf8"/>
+<circle cx="244.3" cy="218.4" r="3.5" fill="#38bdf8"/>
+<circle cx="246.5" cy="221.8" r="3.5" fill="#38bdf8"/>
+<circle cx="248.7" cy="225.1" r="3.5" fill="#38bdf8"/>
+<circle cx="250.9" cy="228.3" r="3.5" fill="#38bdf8"/>
+<circle cx="253.1" cy="231.5" r="3.5" fill="#38bdf8"/>
+<circle cx="255.4" cy="234.7" r="3.5" fill="#38bdf8"/>
+<circle cx="257.6" cy="237.8" r="3.5" fill="#38bdf8"/>
+<circle cx="259.9" cy="240.8" r="3.5" fill="#38bdf8"/>
+<circle cx="262.1" cy="243.7" r="3.5" fill="#38bdf8"/>
+<circle cx="264.3" cy="246.5" r="3.5" fill="#38bdf8"/>
+<circle cx="266.4" cy="249.3" r="3.5" fill="#38bdf8"/>
+<circle cx="268.5" cy="251.9" r="3.5" fill="#38bdf8"/>
+<circle cx="270.5" cy="254.4" r="3.5" fill="#38bdf8"/>
+<circle cx="272.4" cy="256.8" r="3.5" fill="#38bdf8"/>
+<circle cx="274.2" cy="259.0" r="3.5" fill="#38bdf8"/>
+<circle cx="275.9" cy="261.1" r="3.5" fill="#38bdf8"/>
+<circle cx="277.4" cy="263.0" r="3.5" fill="#38bdf8"/>
+<circle cx="278.8" cy="264.7" r="3.5" fill="#38bdf8"/>
+<circle cx="280.1" cy="266.3" r="3.5" fill="#38bdf8"/>
+<circle cx="281.1" cy="267.7" r="3.5" fill="#38bdf8"/>
+<circle cx="282.1" cy="268.8" r="3.5" fill="#38bdf8"/>
+<circle cx="282.8" cy="269.7" r="3.5" fill="#38bdf8"/>
+<circle cx="283.4" cy="270.4" r="3.5" fill="#38bdf8"/>
+<circle cx="283.8" cy="270.8" r="3.5" fill="#38bdf8"/>
+<circle cx="284.0" cy="271.0" r="3.5" fill="#38bdf8"/>
+<circle cx="284.1" cy="270.9" r="3.5" fill="#38bdf8"/>
+<circle cx="283.9" cy="270.5" r="3.5" fill="#38bdf8"/>
+<circle cx="283.6" cy="269.9" r="3.5" fill="#38bdf8"/>
+<circle cx="283.2" cy="268.9" r="3.5" fill="#38bdf8"/>
+<circle cx="282.6" cy="267.7" r="3.5" fill="#38bdf8"/>
+<circle cx="281.8" cy="266.2" r="3.5" fill="#38bdf8"/>
+<circle cx="280.9" cy="264.4" r="3.5" fill="#38bdf8"/>
+<circle cx="280.0" cy="262.3" r="3.5" fill="#38bdf8"/>
+<circle cx="278.9" cy="260.0" r="3.5" fill="#38bdf8"/>
+<circle cx="277.7" cy="257.4" r="3.5" fill="#38bdf8"/>
+<circle cx="276.4" cy="254.5" r="3.5" fill="#38bdf8"/>
+<circle cx="275.0" cy="251.5" r="3.5" fill="#38bdf8"/>
+<circle cx="273.6" cy="248.2" r="3.5" fill="#38bdf8"/>
+<circle cx="272.2" cy="244.7" r="3.5" fill="#38bdf8"/>
+<circle cx="270.7" cy="241.1" r="3.5" fill="#38bdf8"/>
+<circle cx="269.1" cy="237.3" r="3.5" fill="#38bdf8"/>
+<circle cx="267.6" cy="233.3" r="3.5" fill="#38bdf8"/>
+<circle cx="266.0" cy="229.3" r="3.5" fill="#38bdf8"/>
+<circle cx="264.4" cy="225.1" r="3.5" fill="#38bdf8"/>
+<circle cx="405.0" cy="269.3" r="6" fill="#f59e0b"/>
+<text x="48" y="520" fill="#94a3b8" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Gold: Sun path, 57 Horizons samples, Nov 15-29 2026. Blue: Earth, nearly fixed. Horizon ring bold at 0 deg; center is +12 deg.</text>
+<rect x="600" y="130" width="552" height="300" rx="12" fill="#111a2e" stroke="#1e293b"/>
+<text x="628" y="172" fill="#4ade80" font-size="15" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">#1 RECOMMENDED</text>
+<text x="628" y="206" fill="#e2e8f0" font-size="24" font-weight="700" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Mons Mouton Plateau</text>
+<text x="628" y="232" fill="#94a3b8" font-size="14" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">29.926 deg E, -84.232 deg S</text>
+<text x="628" y="272" fill="#94a3b8" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">Sun up</text>
+<text x="750" y="272" fill="#e2e8f0" font-size="14" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">336.0 h of 336 h</text>
+<text x="628" y="292" fill="#94a3b8" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">max +7.30 deg, mean +5.34 deg</text>
+<text x="628" y="314" fill="#94a3b8" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">Earth up</text>
+<text x="750" y="314" fill="#e2e8f0" font-size="14" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">336.0 h of 336 h</text>
+<text x="628" y="334" fill="#94a3b8" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">max +11.07 deg, mean +7.77 deg</text>
+<text x="628" y="356" fill="#94a3b8" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">Sun sweep</text>
+<text x="750" y="356" fill="#e2e8f0" font-size="14" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">170.4 deg in 14 days</text>
+<text x="628" y="376" fill="#94a3b8" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">Earth sweep 12.6 deg (libration)</text>
+<text x="628" y="398" fill="#94a3b8" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">Score</text>
+<text x="750" y="398" fill="#e2e8f0" font-size="14" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">672.0 = 336.0 + 336.0</text>
+<text x="628" y="418" fill="#94a3b8" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">power PASS, comms PASS, terrain UNKNOWN</text>
+<text x="628" y="452" fill="#94a3b8" font-size="12" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">The Sun never sets across the window. Every number traces to a Horizons row.</text>
+</svg>
