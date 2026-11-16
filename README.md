@@ -1,5 +1,13 @@
 # Lunar Landing Site Navigator
 
+[![NASA Space Apps 2026](https://img.shields.io/badge/NASA%20Space%20Apps-2026-0B3D91)](https://www.spaceappschallenge.org/)
+[![Data: JPL Horizons](https://img.shields.io/badge/data-JPL%20Horizons-E03C31)](https://ssd.jpl.nasa.gov/horizons/)
+[![Language: C11](https://img.shields.io/badge/language-C11-555555)](https://github.com/AHMADALIPARR/lunar-navigator/blob/main/src/nav.c)
+[![Page: no JavaScript](https://img.shields.io/badge/page-no%20JavaScript-2EA043)](https://github.com/AHMADALIPARR/lunar-navigator/blob/main/out/index.html)
+[![License: Sovereign Leviathan](https://img.shields.io/badge/license-Sovereign%20Leviathan-blue)](https://github.com/AHMADALIPARR/lunar-navigator/blob/main/LICENSE)
+
+**Mons Mouton Plateau wins: the Sun never sets for 14 days, and Earth never drops below +11°.** Nine Artemis III regions, one winner, every number traced to a JPL Horizons row.
+
 Nine Artemis III candidate landing regions, compared on real Sun and
 Earth sky geometry for a 14-day surface window. The navigator pulls
 the Sun's and Earth's apparent azimuth and elevation for each region

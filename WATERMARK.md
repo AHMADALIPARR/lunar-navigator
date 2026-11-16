@@ -1,17 +1,17 @@
-# WATERMARK — lunar-navigator
+# WATERMARK — Lunar Landing Site Navigator
 
 Hash-chained manifest of this tree. HEAD = SHA-256 of the
 concatenated per-file hex digests, in listed order.
 
-HEAD 14a9f2d4eb99e47aa69566769a961002187e0b1e7769d4fe59d698aef8530a87
+HEAD b8a61a5b3c1627c9fec0b3ccf8899abbb187f909c46a97dcae7695105e6da4ae
 
 37da5c4b87c578f0aa2c221e8d82e85b21426d1afff5b200effc093a4517870a  .gitignore
 0e03c3a0a15120fff9c48059f9042e926c4b7915d966a8007873219730ee6df4  AI_DISCLOSURE.md
 6f26b3c4a6017597ef0a302b31125dbb9848b77129d598b503ad33818acbf8a6  LICENSE
 9602def7a33f19eedaed4e2ac372fe691993fe1dfc428fdf80b54f7d41678a0b  Makefile
-c5b536090b391a32655ccc22361f5c9464a06e9e83b8ee10082073caaa095211  README.md
+814008afe0bac9c9b654d0078790a3600c348d0b163dc4a91a3adcb17af6e6ec  README.md
 d571db5a877f18ba9947a565f883ee962baeca94fe1db4c47d7f8677fceeddb5  STATUS.md
-3a52564998faa009cc6c42820091de1ee168b2638d18660c2fc0191b06b205d3  SUBMISSION.md
+40b84baec828ed0314bd701f5067335eeda09434df392c15908f88cca41af8c0  SUBMISSION.md
 948b3b5edf692b2ba6860b4788af506889fb34aa6a0db46fbf05af359b2d635b  data/csv/dgr2-earth.csv
 2d785342f8454ded62bd05b3f12e376cbcdd23da593f89de64cb74494332eb02  data/csv/dgr2-sun.csv
 cbbc57b9242f274836bd3523c1f6ec305f5c317a71c26d1a4c58fedf47f81ccb  data/csv/haworth-earth.csv
