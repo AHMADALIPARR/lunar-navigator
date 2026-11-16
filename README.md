@@ -6,14 +6,32 @@ the Sun's and Earth's apparent azimuth and elevation for each region
 from the JPL Horizons system, computes solar-power and
 direct-to-Earth communications windows, applies stated pass/fail
 guards, and recommends one site — with a reason and a tradeoff for
-every region. This is Jessica Williams' team entry for the NASA
+every region. This is Team SnapKitty's entry for the NASA
 International Space Apps Challenge 2026, challenge Lunar Landing
-Site Navigator. It is built with Muse as the disclosed AI tool; the
-numbers come from JPL Horizons, not from the AI.
+Site Navigator, submitted by Ahmad Ali Parr. It is built with Muse
+as the disclosed AI tool; the numbers come from JPL Horizons, not
+from the AI.
 
 ![The navigator page — the comparison table over the nine regions](images/page-hero.png)
 
 *The page the program generates: the comparison table, one 3D sky dome per site, and the decision ledger — a single file, no JavaScript. Mons Mouton Plateau takes the green row.*
+
+## Run it in two minutes
+
+```sh
+git clone https://github.com/AHMADALIPARR/lunar-navigator.git
+cd lunar-navigator
+make            # builds the navigator, renders the nine sky domes, generates the page
+```
+
+Then open `out/index.html` in any browser. No server, no
+JavaScript, no network calls. You need a C11 compiler (`gcc`) and
+`make`; the sky domes also need `xvfb-run` and `ffmpeg`. If you do
+not have those two, run `make run` instead — it builds the
+navigator and the page, and the page falls back to the SVG polar
+plots it draws itself. The Horizons data is already in `data/`, so
+no internet is needed to run it. See [How to run it](#how-to-run-it)
+for the full guide.
 
 ## What it is
 
@@ -344,17 +362,58 @@ throughout. That is why the decision is MARGINAL and not REJECT:
 the comms are fine, the power is not, and the tradeoff is a
 battery problem rather than a site problem.
 
-## How to re-run it
+## How to run it
 
+### What you need
+
+- A C11 compiler — `gcc` works; `gcc -std=c11 -O2 -Wall -Wextra`
+  builds `src/nav.c` with zero warnings, standard library only.
+- `make`.
+- For the rendered 3D sky domes only: `xvfb-run` (Xvfb) and
+  `ffmpeg`. Without them the page still builds and shows the SVG
+  polar plots instead.
+
+No internet is needed to run it. The Horizons tables are already
+in `data/csv/` (1,026 rows) and the raw query output in `data/raw/`.
+
+### Build it
+
+```sh
+make            # everything: navigator, page, nine rendered sky domes
+make run        # navigator + page only (SVG plots, no OpenGL render)
+make clean      # remove the built outputs, then re-run make
 ```
+
+`make` does three things in order: it compiles `src/nav.c` into
+`./nav`; it runs `./nav data out`, which reads the tables and
+writes `out/index.html`, `out/sites_filled.csv`, and
+`out/summary.txt`; then it renders the nine sky domes
+(`sky/render.sh`, OpenGL host + GLSL kernel over each site's own
+samples) and runs `./nav` once more so the page embeds the renders.
+The page is a single self-contained file — open `out/index.html`
+from disk in any browser.
+
+### Re-pull the data
+
+```sh
 ./data/fetch.sh     # re-pull the 18 Horizons tables (needs internet)
-make                # build src/nav.c and regenerate out/
+make                # rebuild everything from the fresh tables
 ```
 
-The build needs only a C11 compiler and the standard math library.
-`gcc -std=c11 -O2 -Wall -Wextra` builds with zero warnings. The
-page opens from disk in any browser; there is no server, no
-JavaScript, and no network call in it.
+`fetch.sh` queries the JPL Horizons API
+(`https://ssd.jpl.nasa.gov/api/horizons.api`) for the Sun and the
+Earth at each of the nine regions, November 15–29, 2026, every 6
+hours. To compare a different window, change the dates in
+`data/fetch.sh` and re-run; the pipeline is window-agnostic.
+
+### What you get
+
+- `out/index.html` — the navigator page: comparison table, nine sky
+  domes, decision ledger, science table, method, sources.
+- `out/sites_filled.csv` — the decision-model table, all eleven
+  columns filled.
+- `out/summary.txt` — the plain-text per-site numbers.
+- `demo/lunar-navigator-demo-30s.mp4` — the 30-second demo video.
 
 ## Limits, stated plainly
 
@@ -392,8 +451,8 @@ JavaScript, and no network call in it.
 
 ## Use of AI
 
-This entry was built by Jessica Williams' team with Muse (Meta's
-personal AI agent) as the AI tool. Muse wrote the navigator program,
+This entry was submitted by Ahmad Ali Parr for Team SnapKitty, built
+with Muse (Meta's personal AI agent) as the AI tool. Muse wrote the navigator program,
 generated the page from the Horizons data, and narrated the demo
 video with AI text-to-speech. All numeric values come from JPL
 Horizons ephemeris rows, not from the AI — the program only reads,
