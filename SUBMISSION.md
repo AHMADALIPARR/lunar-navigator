@@ -11,8 +11,8 @@ repository link, and the final team/project name.
 
 Lunar Landing Site Navigator
 
-Note: Jessica confirms the final team name and project name before
-submitting. The working title is the challenge name because the tool
+Team: Team SnapKitty. Submitted under the name Ahmad Ali Parr.
+The working title is the challenge name because the tool
 is the navigator itself.
 
 ## High-Level Summary
@@ -43,8 +43,8 @@ AI_DISCLOSURE.md).
 
 ## Final Project
 
-Public repository (link to be added after the push):
-[TODO: public repo link]
+Public repository:
+https://github.com/AHMADALIPARR/lunar-navigator
 
 Local repository: lunar-navigator (this repo). The entry is built by
 `src/nav.c` (C11, standard library only) from the Horizons tables in
@@ -108,8 +108,8 @@ source.
 
 ## Use of AI
 
-This entry was built by Jessica Williams' team with Muse (Meta's
-personal AI agent) as the AI tool. Muse wrote the navigator program
+This entry is submitted by Ahmad Ali Parr for Team SnapKitty, built
+with Muse (Meta's personal AI agent) as the AI tool. Muse wrote the navigator program
 (`src/nav.c`), generated the page from the Horizons data, and
 narrated the demo video with AI text-to-speech. All numeric values
 come from JPL Horizons ephemeris rows, not from the AI — the program
