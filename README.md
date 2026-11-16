@@ -11,6 +11,10 @@ International Space Apps Challenge 2026, challenge Lunar Landing
 Site Navigator. It is built with Muse as the disclosed AI tool; the
 numbers come from JPL Horizons, not from the AI.
 
+![The navigator page — the comparison table over the nine regions](images/page-hero.png)
+
+*The page the program generates: the comparison table, one 3D sky dome per site, and the decision ledger — a single file, no JavaScript. Mons Mouton Plateau takes the green row.*
+
 ## What it is
 
 At the lunar south pole the Sun never rises high. It circles the
@@ -46,6 +50,13 @@ lunar-navigator/
     index.html            the navigator page (generated)
     sites_filled.csv      the decision-model table, filled from data
     summary.txt           plain-text per-site numbers
+  sky/
+    host.c                the OpenGL host, extended with a sky data-file argument
+    kernel_skydome.frag   the GLSL sky-dome kernel (fisheye sky, Sun path, Earth dots)
+    render.sh             renders all nine sky domes from the Horizons samples
+  images/
+    page-hero.png         screenshot of the generated page
+    mmp.png, mm.png ...   the nine rendered sky domes, one per region
   demo/
     lunar-navigator-demo-30s.mp4   the 30-second demo video
   README.md               this file
@@ -183,6 +194,28 @@ single unbroken gold arc; a site where it sets shows the gold arc
 breaking into a dashed grey arc for the dark stretch. That visual
 difference is the whole power story.
 
+## The nine sky domes
+
+Every dome below is the sky-dome kernel's output — rendered by `sky/host.c` running `sky/kernel_skydome.frag` over that site's own 57 Horizons samples, the same samples behind the table. Gold is the Sun's 14-day path (solid while up, dashed grey while down); blue dots are Earth. Re-rendered 2026-11-15: byte-identical to the first run.
+
+<table>
+<tr>
+<td align="center"><img src="images/mmp.png" width="250"><br><b>Mons Mouton Plateau</b><br>RECOMMENDED — Sun 336.0 h</td>
+<td align="center"><img src="images/mm.png" width="250"><br><b>Mons Mouton</b><br>VIABLE — Sun 336.0 h</td>
+<td align="center"><img src="images/nr1.png" width="250"><br><b>Nobile Rim 1</b><br>VIABLE — Sun 336.0 h</td>
+</tr>
+<tr>
+<td align="center"><img src="images/malapert.png" width="250"><br><b>Malapert Massif</b><br>VIABLE — Sun 332.6 h</td>
+<td align="center"><img src="images/nr2.png" width="250"><br><b>Nobile Rim 2</b><br>VIABLE — Sun 316.2 h</td>
+<td align="center"><img src="images/haworth.png" width="250"><br><b>Haworth</b><br>MARGINAL — Sun 299.2 h</td>
+</tr>
+<tr>
+<td align="center"><img src="images/dgr2.png" width="250"><br><b>de Gerlache Rim 2</b><br>REJECT — Sun 279.2 h</td>
+<td align="center"><img src="images/pcnb.png" width="250"><br><b>Peak near Cabeus B</b><br>MARGINAL — Sun 179.2 h</td>
+<td align="center"><img src="images/sp.png" width="250"><br><b>Slater Plain</b><br>REJECT — Sun 218.4 h</td>
+</tr>
+</table>
+
 ## The results
 
 The window is 2026-11-15 to 2026-11-29, 336 hours, sampled every
@@ -285,6 +318,8 @@ say how close the near-misses are is not a rule, it is a verdict.
 
 ## Two plots, worked
 
+<img src="images/mmp.png" width="480">
+
 The Mons Mouton Plateau plot is the easy one to read. The gold
 line is a single unbroken arc across the northern half of the plot,
 running from west to east and staying between the +5 and +10 degree
@@ -293,6 +328,8 @@ because the Sun never sets. The blue Earth dots form a short arc
 near the top of the plot, around +11 degrees — Earth barely moves,
 and it sits high. The plot says in one picture what the table says
 in numbers: both bodies up, all window, high.
+
+<img src="images/pcnb.png" width="480">
 
 The Peak near Cabeus B plot is the instructive one. The gold arc
 starts on the eastern side, runs for a short stretch, and then the

@@ -89,3 +89,7 @@ Built: 2026-11-15, local only. No remote, no push, no submission yet.
   wins that comparison.
 - Not a ranking of science value. The oxide table is a second axis
   for the reader; the decision ranks on sky access only.
+
+## README images (2026-11-15)
+
+The README now shows the work: a screenshot of the generated page at the top, the nine rendered sky domes in a gallery, and the Mons Mouton Plateau and Peak near Cabeus B domes beside their worked readings. The frames are the sky-dome kernel's output, re-rendered 2026-11-15 and byte-identical to the first run. The renders are software OpenGL (Mesa llvmpipe) on this VM; the host and kernel run unchanged on a GPU.
